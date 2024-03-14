@@ -11,7 +11,7 @@ public class WorkerServiceImpl implements WorkerService {
     private final WorkerRepository workerRepository;
     private final OrderRepository orderRepository;
 
-    public WorkerServiceImpl(WorkerRepository workerRepository) {
+    public WorkerServiceImpl(WorkerRepository workerRepository, OrderRepository orderRepository) {
         this.workerRepository = workerRepository;
         this.orderRepository = orderRepository;
     }
@@ -43,7 +43,7 @@ public class WorkerServiceImpl implements WorkerService {
     @Override
     public void assignWorkerToOrder(String workerId, String orderId) {
         Worker worker = getWorkerById(workerId);
-        Order order = orderRepository.findById(orderId).orElseThrow(() -> new RuntimeException("No existe ninguna orden con la ID " + orderId));;
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new RuntimeException("No existe ninguna orden con la ID " + orderId));
         order.getWorkerList().add(worker);
         worker.getOrderList().add(order);
         workerRepository.save(worker);
