@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head"/>
+<body>
+<h1 th:text="${store.name}"></h1>
+<section>
+    <h2>Lista de trabajadores</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Salario</th>
+            <th>Baja</th>
+        </tr>
+        <tr th:each="worker: ${store.workerList}">
+            <td th:text="${worker.name}"></td>
+            <td th:text="${worker.surname}"></td>
+            <td th:text="${worker.monthlySalary}€"></td>
+            <td><a th:href="/stores/${store.id}/workers/remove/${worker.id}">Dar de baja</a></td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h2>Dar de alta a un trabajador</h2>
+    <form action="/stores/${store.id}/workers/add" method="post">
+        <label for="name">Introduzca el nombre del trabajador: </label>
+        <input id="name" type="text" placeholder="Nombre del trabajador" />
+        <br>
+        <label for="surname">Introduzca los apellidos del trabajador: </label>
+        <input id="surname" type="text" placeholder="Apellidos del trabajador" />
+        <br>
+        <label for="monthySalary">Introduzca el salario mensual del trabajador: </label>
+        <input id="monthySalary" type="text" placeholder="Salario del trabajador" />
+        <br>
+        <input type="submit" value="Dar de alta">
+    </form>
+</section>
+</body>
+</html>
