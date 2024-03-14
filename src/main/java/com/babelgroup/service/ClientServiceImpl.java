@@ -36,7 +36,7 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public Client getClientById(String clientId) {
-        return clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("No existe ningún cliente con la ID: " + clientId));;
+        return clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("No existe ningún cliente con la ID: " + clientId));
     }
 
     @Override
