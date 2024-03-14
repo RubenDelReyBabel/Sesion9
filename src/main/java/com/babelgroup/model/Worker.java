@@ -10,6 +10,8 @@ import java.util.List;
 public class Worker extends BaseEntity {
 
     private String name;
+    private String surname;
+    private double monthlySalary;
 
     private Store store;
     private List<Order> orderList;
