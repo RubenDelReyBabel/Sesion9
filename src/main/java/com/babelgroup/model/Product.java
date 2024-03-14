@@ -12,7 +12,7 @@ public class Product extends BaseEntity {
     private String name;
     private String description;
     private Integer stock;
-    private double price;
+    private Double price;
 
 
     private Store store;
