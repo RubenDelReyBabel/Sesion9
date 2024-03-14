@@ -14,7 +14,6 @@ public class Product extends BaseEntity {
     private Integer stock;
     private Double price;
 
-
     private Store store;
     private List<ProductOrder> orderList;
     private List<Menu> menus;
