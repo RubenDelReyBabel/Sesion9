@@ -22,8 +22,14 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product updateProduct(String id, Product productDetails) {
         Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("No existe ningún producto con la ID: " + id));
-        //TODO: Lógica para actualizar el producto.
-        return productRepository.save(productDetails);
+        if (productDetails.getName() != null)product.setName(productDetails.getName());
+        if (productDetails.getDescription() != null) product.setDescription(productDetails.getDescription());
+        if (productDetails.getStock() != null) product.setStock(productDetails.getStock());
+        if (productDetails.getPrice() != null) product.setPrice(productDetails.getPrice());
+        if (productDetails.getStore() != null) product.setStore(productDetails.getStore());
+        if (productDetails.getOrderList() != null) product.setOrderList(productDetails.getOrderList());
+        if (productDetails.getMenus() != null) product.setMenus(productDetails.getMenus());
+        return productRepository.save(product);
     }
 
     @Override
