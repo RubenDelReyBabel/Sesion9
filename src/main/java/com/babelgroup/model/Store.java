@@ -14,4 +14,5 @@ public class Store extends BaseEntity {
     private List<Product> productList;
     private List<Worker> workerList;
     private List<Order> orderList;
+    private List<Menu> menuList;
 }

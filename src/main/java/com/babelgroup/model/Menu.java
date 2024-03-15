@@ -12,4 +12,5 @@ public class Menu extends BaseEntity {
     private String name;
 
     private List<Product> productList;
+    private Store store;
 }
