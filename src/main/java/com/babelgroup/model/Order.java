@@ -13,7 +13,6 @@ import java.util.List;
 @Data
 @Entity
 public class Order extends BaseEntity {
-
     @OneToMany(mappedBy = "order")
     private List<ProductOrder> productOrderList;
     @ManyToMany
