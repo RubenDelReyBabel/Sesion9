@@ -1,4 +1,4 @@
-package com.babelgroup.repository.menu;
+package com.babelgroup.repository;
 
 import com.babelgroup.model.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;

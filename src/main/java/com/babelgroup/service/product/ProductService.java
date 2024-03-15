@@ -1,11 +1,12 @@
-package com.babelgroup.service;
+package com.babelgroup.service.product;
 
+import com.babelgroup.dtos.ProductDto;
 import com.babelgroup.model.Product;
 
 import java.util.List;
 
 public interface ProductService {
-    Product createProduct(Product product);
+    Product createProduct(ProductDto product);
 
     Product updateProduct(String id, Product productDetails);
 

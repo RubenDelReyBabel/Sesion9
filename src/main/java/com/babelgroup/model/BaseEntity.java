@@ -1,13 +1,20 @@
 package com.babelgroup.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @Data
-public class BaseEntity {
+@MappedSuperclass
+public abstract class BaseEntity {
 
-    private String id;
+    @Id
+    @Column(length = 36)
+    private String id = UUID.randomUUID().toString();
 
     @Override
     public boolean equals(Object o) {

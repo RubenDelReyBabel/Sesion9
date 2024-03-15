@@ -14,9 +14,11 @@
         </tr>
         <tr th:each="product: ${menu.productList}">
             <td th:text="${product.name}"></td>
-            <td th:text="${product.stock} unidades"></td>
-            <td th:text="${product.price}€"></td>
-            <td><a th:href="/stores/${store.id}/menus/${menu.id}/products/remove/${product.id}">Eliminar producto</a></td>
+            <td th:text="${product.stock + ' unidades'}"></td>
+            <td th:text="${product.price + ' €'}"></td>
+            <td><a th:href="{'/stores/' + store.id + '/menus/' + menu.id + '/products/remove/' + product.id}">Eliminar
+                producto</a>
+            </td>
         </tr>
     </table>
 </section>
@@ -31,9 +33,11 @@
         </tr>
         <tr th:each="product: ${store.productList}" th:if="${!menu.productList.contains(product)}">
             <td th:text="${product.name}"></td>
-            <td th:text="${product.stock} unidades"></td>
-            <td th:text="${product.price}€"></td>
-            <td><a th:href="/stores/${store.id}/menus/${menu.id}/products/add/${product.id}">Añadir producto</a></td>
+            <td th:text="${product.stock + ' unidades'}"></td>
+            <td th:text="${product.price ' Eurilloh'}"></td>
+            <td><a th:href="{/stores/' + store.id + '/menus/' + menu.id + '/products/add/' + product.id}">Añadir
+                producto</a>
+            </td>
         </tr>
     </table>
 </section>

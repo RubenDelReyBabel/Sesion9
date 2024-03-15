@@ -1,7 +1,7 @@
 package com.babelgroup.controllers;
 
 import com.babelgroup.model.Store;
-import com.babelgroup.service.StoreService;
+import com.babelgroup.service.store.StoreService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +12,11 @@ import java.util.List;
 @Controller
 public class StoreController {
 
-    private StoreService storeService;
+    private final StoreService storeService;
+
+    public StoreController(StoreService storeService) {
+        this.storeService = storeService;
+    }
 
     @RequestMapping("/stores/list")
     public String getStores(Model model) {

@@ -15,22 +15,22 @@
         <tr th:each="worker: ${store.workerList}">
             <td th:text="${worker.name}"></td>
             <td th:text="${worker.surname}"></td>
-            <td th:text="${worker.monthlySalary}€"></td>
-            <td><a th:href="/stores/${store.id}/workers/remove/${worker.id}">Dar de baja</a></td>
+            <td th:text="${worker.monthlySalary + '€'}"></td>
+            <td><a th:href="${'/stores/' + store.id + '/workers/remove/'+worker.id}">Dar de baja</a></td>
         </tr>
     </table>
 </section>
 <section>
     <h2>Dar de alta a un trabajador</h2>
-    <form action="/stores/${store.id}/workers/add" method="post">
+    <form th:action="${'/stores/' + store.id + '/workers/add'}" method="post" th:object="${worker}">
         <label for="name">Introduzca el nombre del trabajador: </label>
-        <input id="name" type="text" placeholder="Nombre del trabajador" />
+        <input id="name" type="text" placeholder="Nombre del trabajador"/>
         <br>
         <label for="surname">Introduzca los apellidos del trabajador: </label>
-        <input id="surname" type="text" placeholder="Apellidos del trabajador" />
+        <input id="surname" type="text" placeholder="Apellidos del trabajador"/>
         <br>
         <label for="monthySalary">Introduzca el salario mensual del trabajador: </label>
-        <input id="monthySalary" type="text" placeholder="Salario del trabajador" />
+        <input id="monthySalary" type="text" placeholder="Salario del trabajador"/>
         <br>
         <input type="submit" value="Dar de alta">
     </form>

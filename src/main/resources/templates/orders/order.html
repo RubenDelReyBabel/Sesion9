@@ -14,9 +14,11 @@
         </tr>
         <tr th:each="productOrder: ${order.productOrderList}">
             <td th:text="${productOrder.product.name}"></td>
-            <td th:text="${productOrder.quantity} unidades"></td>
-            <td th:text="${productOrder.product.price}€"></td>
-            <td><a th:href="/stores/${store.id}/orders/${order.id}/products/remove/${product.id}">Eliminar producto</a></td>
+            <td th:text="${productOrder.quantity + ' unidades'}"></td>
+            <td th:text="${productOrder.product.price + ' €'}"></td>
+            <td><a th:href="${'/stores/' + store.id + '/orders/' + order.id + '/products/remove/' + product.id}">Eliminar
+                producto</a>
+            </td>
         </tr>
     </table>
 </section>
@@ -33,7 +35,9 @@
             <td th:text="${product.name}"></td>
             <td th:text="${product.stock} unidades"></td>
             <td th:text="${product.price}€"></td>
-            <td><a th:href="/stores/${store.id}/orders/${order.id}/products/add/${product.id}">Añadir producto</a></td>
+            <td><a th:href="{'/stores/' + store.id + '/orders/' + order.id + '/products/add/' + product.id}">Añadir
+                producto</a>
+            </td>
         </tr>
     </table>
 </section>
@@ -48,7 +52,9 @@
         <tr th:each="worker: ${order.workerList}">
             <td th:text="${worker.name}"></td>
             <td th:text="${worker.surname}"></td>
-            <td><a th:href="/stores/${store.id}/orders/${order.id}/workers/remove/${worker.id}">Eliminar</a></td>
+            <td>
+                <a th:href="{'/stores/' + store.id + '/orders/' + order.id + '/workers/remove/' + worker.id}">Eliminar</a>
+            </td>
         </tr>
     </table>
 </section>
@@ -64,7 +70,8 @@
         <tr th:each="worker: ${order.workerList}" th:if="${!order.workerList.contains(worker)}">
             <td th:text="${worker.name}"></td>
             <td th:text="${worker.surname}"></td>
-            <td><a th:href="/stores/${store.id}/orders/${order.id}/workers/add/${worker.id}">Eliminar</a></td>
+            <td><a th:href="${'/stores/' + store.id + '/orders/' + order.id + '/workers/add/' + worker.id}">Eliminar</a>
+            </td>
         </tr>
     </table>
 </section>

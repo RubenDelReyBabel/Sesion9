@@ -1,4 +1,4 @@
-package com.babelgroup.service;
+package com.babelgroup.service.store;
 
 import com.babelgroup.model.Product;
 import com.babelgroup.model.Store;
@@ -13,6 +13,7 @@ import java.util.List;
 public class StoreServiceImpl implements StoreService {
     private final ProductRepository productRepository;
     private final StoreRepository storeRepository;
+
     public StoreServiceImpl(ProductRepository productRepository, StoreRepository storeRepository) {
         this.productRepository = productRepository;
         this.storeRepository = storeRepository;
@@ -29,5 +30,15 @@ public class StoreServiceImpl implements StoreService {
     public List<Product> findAllProductsInStore(String storeId) {
         Store store = storeRepository.findById(storeId).orElseThrow(() -> new RuntimeException("No existe ninguna store con la ID: " + storeId));
         return new ArrayList<>(store.getProductList());
+    }
+
+    @Override
+    public List<Store> findAll() {
+        return storeRepository.findAll();
+    }
+
+    @Override
+    public Store findById(String id) {
+        return storeRepository.findById(id).orElseThrow(() -> new RuntimeException("No existe ninguna store con la ID: " + id));
     }
 }

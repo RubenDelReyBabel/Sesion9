@@ -2,27 +2,27 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head"/>
 <body>
-    <h1>Gestión de almacenes de McRonald's</h1>
-    <section>
-        <h2>Lista de almacenes</h2>
-        <table>
-            <tr>
-                <th>Nombre</th>
-                <th>Dirección</th>
-                <th>Gestionar productos</th>
-                <th>Gestionar plantilla</th>
-                <th>Ver cartas</th>
-                <th>Ver productos</th>
-            </tr>
-            <tr th:each="store: ${storeList}">
-                <td th:text="${store.name}"></td>
-                <td th:text="${store.address}"></td>
-                <td><a th:href="/stores/${store.id}/products/manage">Gestionar productos de la tienda</a></td>
-                <td><a th:href="/stores/${store.id}/workers/manage"></a>Gestionar plantilla de la tienda</td>
-                <td><a th:href="/stores/${store.id}/menus/list">Gestionar cartas de la tienda</a></td>
-                <td><a th:href="/stores/${store.id}/orders/list">Gestionar pedidos de la tienda</a></td>
-            </tr>
-        </table>
-    </section>
+<h1>Gestión de almacenes de McRonald's</h1>
+<section>
+    <h2>Lista de almacenes</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Gestionar productos</th>
+            <th>Gestionar plantilla</th>
+            <th>Ver cartas</th>
+            <th>Ver productos</th>
+        </tr>
+        <tr th:each="store: ${storeList}">
+            <td th:text="${store.name}"></td>
+            <td th:text="${store.address}"></td>
+            <td><a th:href="${'/stores/' + store.id + '/products/manage'}">Productos</a></td>
+            <td><a th:href="${'/stores/' + store.id + '/workers/manage'}">Plantilla</a></td>
+            <td><a th:href="${'/stores/' + store.id + '/menus/manage'}">Cartas</a></td>
+            <td><a th:href="${'/stores/' + store.id + '/orders/manage'}">Pedidos</a></td>
+        </tr>
+    </table>
+</section>
 </body>
 </html>

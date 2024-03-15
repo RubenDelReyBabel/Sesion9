@@ -12,7 +12,7 @@
         </tr>
         <tr th:each="order: ${store.orderList}">
             <td th:text="${order.id}"></td>
-            <td><a th:href="/stores/${store.id}/orders/${order.id}">Gestionar</a></td>
+            <td><a th:href="${'/stores/' + store.id + '/orders/' + order.id}">Gestionar</a></td>
         </tr>
     </table>
 </section>

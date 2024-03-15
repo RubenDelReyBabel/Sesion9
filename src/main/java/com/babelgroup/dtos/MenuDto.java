@@ -4,5 +4,5 @@ public class MenuDto {
 
     public String id;
     public String name;
-    public String store;
+    public StoreDto store;
 }
