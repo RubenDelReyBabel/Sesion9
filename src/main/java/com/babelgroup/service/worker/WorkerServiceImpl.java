@@ -13,13 +13,13 @@ public class WorkerServiceImpl implements WorkerService {
     private final WorkerRepository workerRepository;
     private final OrderRepository orderRepository;
 
-    public WorkerServiceImpl(WorkerRepository workerRepository) {
+    public WorkerServiceImpl(WorkerRepository workerRepository, OrderRepository orderRepository) {
         this.workerRepository = workerRepository;
         this.orderRepository = orderRepository;
     }
 
     @Override
-    public void createWorker(Worker workerDetails) {
+    public void createWorker(WorkerDto workerDetails) {
         Worker worker = new Worker();
         worker.setName(workerDetails.getName());
         worker.setSurname(workerDetails.getSurname());
@@ -31,7 +31,7 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public void updateWorker(WorkerDto workerDetails) {
-        Worker worker = workerRepository.findById(workerDetails.getId()).orElseThrow(()-> new RuntimeException("No existe ningún trabajador con la ID " + workerId));
+        Worker worker = workerRepository.findById(workerDetails.getId()).orElseThrow(()-> new RuntimeException("No existe ningún trabajador con la ID " + workerDetails.getId()));
         if (workerDetails.getName() != null) worker.setName(workerDetails.getName());
         if (workerDetails.getStore() != null) worker.setStore(workerDetails.getStore());
         if (workerDetails.getOrderList() != null) worker.setOrderList(workerDetails.getOrderList());
