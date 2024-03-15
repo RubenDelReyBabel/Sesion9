@@ -1,13 +1,15 @@
-package com.babelgroup.model;
+package com.babelgroup.dtos;
 
+import com.babelgroup.model.Order;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class Client extends BaseEntity {
+@AllArgsConstructor
+public class ClientDto {
+    private String id;
     private String name;
     private String surname;
     private String address;
