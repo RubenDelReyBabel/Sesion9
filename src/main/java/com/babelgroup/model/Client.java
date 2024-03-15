@@ -11,7 +11,6 @@ import java.util.List;
 @Data
 @Entity
 public class Client extends BaseEntity {
-
     private String name;
     private String surname;
     private String address;
